@@ -1,39 +1,68 @@
-// BMI tool
+// ==============================
+// EAT CLEAN - SCRIPT.JS (Unified)
+
+// ------------------------------
+// TOOLS.HTML: BMI, Calories & AI Gợi ý thực đơn (onclick)
+// ------------------------------
+
+// 1) Tính BMI (được gọi từ onclick trong tools.html)
 function calcBMI() {
-  const h = parseFloat(document.getElementById("height").value) / 100;
-  const w = parseFloat(document.getElementById("weight").value);
-  if (!h || !w) return alert("Vui lòng nhập đầy đủ thông tin!");
-  const bmi = (w / (h * h)).toFixed(1);
-  let msg = "";
-  if (bmi < 18.5) msg = "Gầy";
-  else if (bmi < 24.9) msg = "Bình thường";
-  else if (bmi < 29.9) msg = "Thừa cân";
-  else msg = "Béo phì";
-  document.getElementById("bmiResult").innerText = `Chỉ số BMI của bạn: ${bmi} (${msg})`;
+  const hInput = document.getElementById("height");
+  const wInput = document.getElementById("weight");
+  const out = document.getElementById("bmiResult");
+
+  const h = parseFloat(hInput?.value) / 100;
+  const w = parseFloat(wInput?.value);
+
+  if (!h || !w) {
+    alert("Vui lòng nhập đầy đủ chiều cao và cân nặng!");
+    return;
+  }
+
+  const bmi = w / (h * h);
+  let label = "";
+  if (bmi < 18.5) label = "Thiếu cân";
+  else if (bmi < 25) label = "Bình thường";
+  else if (bmi < 30) label = "Thừa cân";
+  else label = "Béo phì";
+
+  if (out) out.innerHTML = `Chỉ số BMI: <b>${bmi.toFixed(1)}</b> (${label})`;
 }
 
-// Calories tool
+// 2) Tính Calories (được gọi từ onclick trong tools.html)
 function calcCalories() {
-  const w = parseFloat(document.getElementById("calWeight").value);
-  if (!w) return alert("Nhập cân nặng của bạn!");
+  const wInput = document.getElementById("calWeight");
+  const out = document.getElementById("calResult");
+  const w = parseFloat(wInput?.value);
+  if (!w) {
+    alert("Vui lòng nhập cân nặng!");
+    return;
+  }
   const tdee = Math.round(22 * w);
-  document.getElementById("calResult").innerText =
-    `Nhu cầu calo duy trì: ${tdee} kcal/ngày. Nếu muốn giảm cân an toàn, chỉ nên nạp khoảng ${tdee - 500} kcal/ngày.`;
+  if (out) {
+    out.textContent = `Nhu cầu calo duy trì: ${tdee} kcal/ngày. Nếu muốn giảm cân an toàn, chỉ nên nạp khoảng ${tdee - 500} kcal/ngày.`;
+  }
 }
 
-// 🧠 AI Gợi ý thực đơn ngẫu nhiên
+// 3) AI Gợi ý thực đơn (được gọi từ onclick trong tools.html)
 function generateMenu() {
-  const goal = document.getElementById("goal").value;
-  const height = parseFloat(document.getElementById("height").value);
-  const weight = parseFloat(document.getElementById("weight").value);
-  if (!goal || !height || !weight) return alert("Vui lòng nhập đầy đủ chiều cao, cân nặng và chọn mục tiêu!");
+  const height = parseFloat(document.getElementById("height")?.value);
+  const weight = parseFloat(document.getElementById("weight")?.value);
+  const goal = document.getElementById("goal")?.value;
+  const menuBox = document.getElementById("menuResult");
 
-  // Tính toán cơ bản
+  if (!height || !weight || !goal) {
+    alert("Vui lòng nhập chiều cao, cân nặng và chọn mục tiêu!");
+    return;
+  }
+
+  // Tính BMI & Calo gần đúng
   const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
-  const baseCalories = Math.round(22 * weight);
-  let targetCalories = baseCalories;
+  let calories = Math.round(22 * weight);
+  if (goal === "loss") calories -= 500;
+  if (goal === "gain") calories += 300;
 
-  // Danh sách thực đơn mẫu
+  // Danh sách thực đơn ngẫu nhiên theo mục tiêu
   const menus = {
     loss: [
       {
@@ -124,22 +153,18 @@ function generateMenu() {
     ]
   };
 
-  // Tùy chỉnh theo mục tiêu
-  if (goal === "loss") targetCalories -= 500;
-  else if (goal === "gain") targetCalories += 300;
+  const chosen = menus[goal][Math.floor(Math.random() * menus[goal].length)];
 
-  // Chọn ngẫu nhiên thực đơn trong nhóm
-  const chosenMenu = menus[goal][Math.floor(Math.random() * menus[goal].length)];
-
-  // Hiển thị kết quả
-  let html = `<div class="alert alert-success">
+  const html = `
+    <div class="alert alert-success">
       <strong>Kết quả AI:</strong><br>
-      BMI: ${bmi} | Calo khuyến nghị: ${targetCalories} kcal/ngày
+      BMI: ${bmi} | Calo khuyến nghị: ${calories} kcal/ngày
     </div>
-    <h6 class="fw-bold mt-3">${chosenMenu.title}</h6>
-    <ul class="list-group mt-2">`;
-  chosenMenu.meals.forEach(m => html += `<li class="list-group-item"><strong>${m[0]}:</strong> ${m[1]}</li>`);
-  html += "</ul>";
+    <h6 class="fw-bold mt-2">${chosen.title}</h6>
+    <ul class="list-group mt-2">
+      ${chosen.meals.map(m => `<li class="list-group-item"><strong>${m[0]}:</strong> ${m[1]}</li>`).join("")}
+    </ul>
+  `;
 
-  document.getElementById("menuResult").innerHTML = html;
+  if (menuBox) menuBox.innerHTML = html;
 }
