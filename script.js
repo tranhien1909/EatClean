@@ -62,96 +62,116 @@ function generateMenu() {
   if (goal === "loss") calories -= 500;
   if (goal === "gain") calories += 300;
 
-  // Danh sách thực đơn ngẫu nhiên theo mục tiêu
-  const menus = {
-    loss: [
-      {
-        title: "Thực đơn Giảm cân – Nhẹ nhàng",
-        meals: [
-          ["Bữa sáng", "Yến mạch + sữa hạt + chuối"],
-          ["Bữa trưa", "Ức gà luộc + salad dầu ô liu"],
-          ["Bữa tối", "Cá hấp + rau củ + soup bí đỏ"],
-          ["Bữa phụ", "Sữa chua không đường + hạnh nhân"]
-        ]
-      },
-      {
-        title: "Thực đơn Giảm cân – Năng động",
-        meals: [
-          ["Bữa sáng", "Smoothie xanh (rau + táo + chuối)"],
-          ["Bữa trưa", "Cơm gạo lứt + cá hồi + rau luộc"],
-          ["Bữa tối", "Ức gà áp chảo + salad cà chua"],
-          ["Bữa phụ", "Táo + 5 hạt óc chó"]
-        ]
-      },
-      {
-        title: "Thực đơn Giảm cân – Ăn chậm sống khỏe",
-        meals: [
-          ["Bữa sáng", "Bánh yến mạch chuối + trà gừng"],
-          ["Bữa trưa", "Thịt nạc + bông cải + cơm gạo lứt"],
-          ["Bữa tối", "Đậu hũ sốt nấm + rau xanh luộc"],
-          ["Bữa phụ", "Sữa hạt không đường"]
-        ]
-      }
-    ],
-    maintain: [
-      {
-        title: "Thực đơn Giữ dáng – Cân bằng",
-        meals: [
-          ["Bữa sáng", "Bánh mì nguyên cám + trứng + cà chua"],
-          ["Bữa trưa", "Cơm gạo lứt + cá thu + rau xào"],
-          ["Bữa tối", "Salad bò + khoai lang"],
-          ["Bữa phụ", "Sữa chua Hy Lạp + trái cây"]
-        ]
-      },
-      {
-        title: "Thực đơn Giữ dáng – Linh hoạt",
-        meals: [
-          ["Bữa sáng", "Ngũ cốc nguyên hạt + sữa hạt"],
-          ["Bữa trưa", "Ức gà nướng + cơm + rau trộn"],
-          ["Bữa tối", "Cá hồi áp chảo + salad dầu mè"],
-          ["Bữa phụ", "Chuối + hạt hướng dương"]
-        ]
-      },
-      {
-        title: "Thực đơn Giữ dáng – Năng lượng",
-        meals: [
-          ["Bữa sáng", "Trứng luộc + bánh mì nguyên cám"],
-          ["Bữa trưa", "Cơm + thịt bò + canh rau củ"],
-          ["Bữa tối", "Salad trộn + soup bí đỏ"],
-          ["Bữa phụ", "Trái cây tươi + hạnh nhân"]
-        ]
-      }
-    ],
-    gain: [
-      {
-        title: "Thực đơn Tăng cơ – Dinh dưỡng cao",
-        meals: [
-          ["Bữa sáng", "Trứng + yến mạch + sữa protein"],
-          ["Bữa trưa", "Cơm + ức gà + trứng luộc + rau củ"],
-          ["Bữa tối", "Thịt bò + khoai lang + salad trộn"],
-          ["Bữa phụ", "Sữa chua Hy Lạp + hạt óc chó"]
-        ]
-      },
-      {
-        title: "Thực đơn Tăng cơ – Thể hình",
-        meals: [
-          ["Bữa sáng", "Sinh tố protein + bánh yến mạch"],
-          ["Bữa trưa", "Cơm gạo lứt + cá hồi + rau củ hấp"],
-          ["Bữa tối", "Ức gà nướng + khoai tây + trứng"],
-          ["Bữa phụ", "Trứng luộc + chuối"]
-        ]
-      },
-      {
-        title: "Thực đơn Tăng cơ – Tối ưu năng lượng",
-        meals: [
-          ["Bữa sáng", "Bánh mì bơ đậu phộng + sữa protein"],
-          ["Bữa trưa", "Cơm + thịt bò + canh rau củ"],
-          ["Bữa tối", "Cá hồi + khoai lang + rau luộc"],
-          ["Bữa phụ", "Sữa chua Hy Lạp + hạt điều"]
-        ]
-      }
-    ]
-  };
+// ==========================
+// Danh sách thực đơn mở rộng theo mục tiêu (ưu tiên sản phẩm Eat Clean)
+// ==========================
+const menus = {
+  loss: [
+    {
+      title: "Thực đơn Giảm cân – Nhẹ nhàng Eat Clean",
+      meals: [
+        ["Bữa sáng", "Sữa chua Hy Lạp & Granola + Trứng luộc (2 quả)"],
+        ["Bữa trưa", "Cá diêu hồng hấp nấm + salad rau xanh"],
+        ["Bữa tối", "Thịt heo sốt cam + rau củ hấp"],
+        ["Bữa phụ", "Nước ép Năng lượng xanh"]
+      ]
+    },
+    {
+      title: "Thực đơn Giảm cân – Gọn dáng",
+      meals: [
+        ["Bữa sáng", "Thanh năng lượng EATLY + sữa hạt"],
+        ["Bữa trưa", "Cá hồi sốt chanh dây + cơm gạo lứt"],
+        ["Bữa tối", "Ức gà luộc + salad dầu ô liu"],
+        ["Bữa phụ", "Trái cây tươi + hạnh nhân"]
+      ]
+    },
+    {
+      title: "Thực đơn Giảm cân – Năng lượng sạch",
+      meals: [
+        ["Bữa sáng", "Yến mạch sữa hạt + chuối"],
+        ["Bữa trưa", "Gà nướng sốt teriyaki + rau củ hấp"],
+        ["Bữa tối", "Cá diêu hồng + soup bí đỏ"],
+        ["Bữa phụ", "Nước ép Rang rỡ mỗi ngày"]
+      ]
+    },
+    {
+      title: "Thực đơn Giảm cân – Combo tiết kiệm",
+      meals: [
+        ["Combo đề xuất", "Combo giữ dáng toàn diện (115.000đ): 1 Combo Slim + 1 sữa chua Hy Lạp & Granola"]
+      ]
+    }
+  ],
+
+  maintain: [
+    {
+      title: "Thực đơn Giữ dáng – Cân bằng Eat Clean",
+      meals: [
+        ["Bữa sáng", "Ngũ cốc nguyên hạt + sữa hạt"],
+        ["Bữa trưa", "Thịt bò áp chảo măng tây + cơm gạo lứt"],
+        ["Bữa tối", "Salad ức gà Caesar (Meal prep)"],
+        ["Bữa phụ", "Sữa chua Hy Lạp + trái cây"]
+      ]
+    },
+    {
+      title: "Thực đơn Giữ dáng – Linh hoạt",
+      meals: [
+        ["Bữa sáng", "Trứng luộc + bánh mì nguyên cám"],
+        ["Bữa trưa", "Cá hồi sốt chanh dây + salad rau củ"],
+        ["Bữa tối", "Thịt heo sốt cam + soup bí đỏ"],
+        ["Bữa phụ", "Protein Power Smoothie"]
+      ]
+    },
+    {
+      title: "Thực đơn Giữ dáng – Năng động",
+      meals: [
+        ["Bữa sáng", "Thanh năng lượng EATLY + nước ép Rang rỡ mỗi ngày"],
+        ["Bữa trưa", "Gà nướng sốt Teriyaki + salad rau củ"],
+        ["Bữa tối", "Cơm gạo lứt + thịt bò + canh rau củ"],
+        ["Bữa phụ", "Sữa chua Hy Lạp & Granola"]
+      ]
+    },
+    {
+      title: "Thực đơn Giữ dáng – Gói Combo",
+      meals: [
+        ["Combo đề xuất", "Combo giữ dáng toàn diện (115.000đ): 1 Combo Slim + 1 sữa chua Hy Lạp & Granola"]
+      ]
+    }
+  ],
+
+  gain: [
+    {
+      title: "Thực đơn Tăng cơ – Xây dựng năng lượng",
+      meals: [
+        ["Bữa sáng", "Trứng luộc + yến mạch + Protein Power Smoothie"],
+        ["Bữa trưa", "Bò áp chảo măng tây + cơm gạo lứt"],
+        ["Bữa tối", "Cá hồi sốt chanh dây + salad dầu mè"],
+        ["Bữa phụ", "Thanh năng lượng EATLY"]
+      ]
+    },
+    {
+      title: "Thực đơn Tăng cơ – Thể hình Eat Clean",
+      meals: [
+        ["Bữa sáng", "Bánh mì bơ đậu phộng + sữa protein"],
+        ["Bữa trưa", "Cơm + thịt bò + canh rau củ"],
+        ["Bữa tối", "Ức gà nướng sốt Teriyaki + khoai lang"],
+        ["Bữa phụ", "Sữa chua Hy Lạp + hạt điều"]
+      ]
+    },
+    {
+      title: "Thực đơn Tăng cơ – Combo đề xuất",
+      meals: [
+        ["Combo đề xuất", "Combo tập luyện (129.000đ): 1 Combo Build + 1 Protein Power Smoothie"]
+      ]
+    },
+    {
+      title: "Thực đơn Tăng cơ – Gói tuần năng lượng",
+      meals: [
+        ["Combo đề xuất", "Gói ăn tuần '5 ngày vui khỏe' (359.000đ): 5 Combo Balance cho Thứ 2 – Thứ 6"]
+      ]
+    }
+  ]
+};
+
 
   const chosen = menus[goal][Math.floor(Math.random() * menus[goal].length)];
 
