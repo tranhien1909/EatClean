@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eat Clean - Ăn lành mạnh, sống nhẹ nhàng</title>
-    <meta name="description"
-        content="Eat Clean - Thực phẩm lành mạnh, granola, bánh eat clean, combo bữa ăn dinh dưỡng." />
+    <title>EATLY - Giao nhanh - Ăn Sạch - Sống khỏe</title>
+    <meta name="description" content="EATLY - Giao nhanh - Ăn Sạch - Sống khỏe" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -124,7 +123,7 @@
                     style="width:36px;height:36px;background:#e8f3ea;color:var(--ec-primary)">
                     <i class="bi bi-egg-fried"></i>
                 </span>
-                <b>Eat Clean</b>
+                <b>EATLY</b>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navs">
                 <span class="navbar-toggler-icon"></span>
@@ -143,7 +142,7 @@
                         <span id="cartBadge"
                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                     </a>
-                    <a class="btn btn-he" href="#san-pham">Mua ngay</a>
+                    <a class="btn btn-he" href="products.html">Mua ngay</a>
                 </div>
             </div>
         </div>
@@ -157,14 +156,13 @@
                     <div class="p-4 p-md-5 rounded-4 shadow-sm overlay">
                         <div class="d-flex align-items-center gap-2 mb-2"><span class="badge badge-he">Eat clean mỗi
                                 ngày</span><span class="small text-muted">Giao nhanh trong ngày</span></div>
-                        <h1 class="display-5 fw-bold">Ăn lành mạnh, sống nhẹ nhàng</h1>
-                        <p class="lead mb-4">Granola nướng giòn, bánh eat clean ít đường, và gói bữa ăn đủ dinh dưỡng –
-                            phù hợp giảm cân, giữ dáng.</p>
+                        <h1 class="display-5 fw-bold">Giao nhanh - Ăn Sạch - Sống khỏe</h1>
+                        <p class="lead mb-4">Thực phẩm và Đồ uống, chuyên cung cấp các bữa ăn chế biến sẵn.</p>
                         <div class="d-flex gap-2">
                             <a class="btn btn-he btn-lg" href="products.html"><i class="bi bi-cart-plus me-1"></i> Xem
                                 sản
                                 phẩm</a>
-                            <a class="btn btn-outline-dark btn-lg" href="#goi-an">Khám phá gói ăn</a>
+                            <a class="btn btn-outline-dark btn-lg" href="#goi-an">Khám phá combo</a>
                         </div>
                     </div>
                 </div>
@@ -172,282 +170,74 @@
         </div>
     </section>
 
-    <!-- CATEGORY FILTERS -->
-    <section class="py-5 border-bottom" id="san-pham">
+    <!-- Giới thiệu thương hiệu -->
+    <section class="py-5 bg-light" id="about">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
-                <h2 class="section-title m-0">Sản phẩm nổi bật</h2>
-                <div class="input-group" style="max-width:340px">
-                    <span class="input-group-text bg-transparent"><i class="bi bi-search"></i></span>
-                    <input id="searchInput" type="search" class="form-control"
-                        placeholder="Tìm granola, bánh, snack…" />
+            <div class="row align-items-center g-4">
+                <div class="col-md-6">
+                    <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                        style="width:300px;height:300px;background:#e8f3ea;color:var(--ec-primary)">
+                        <i class="bi bi-egg-fried"></i>
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3" style="color: #2e7d32;">Câu chuyện thương hiệu</h2>
+                    <p class="mb-3">
+                        Giữa cuộc sống nhộn nhịp hối hả của đất Sài Gòn này, những bữa ăn càng trở nên nhanh chóng bởi
+                        công việc,
+                        deadline và tăng ca bận rộn khiến chúng ta “lười hơn” trong việc ăn uống.
+                        <strong>Eat Clean</strong> ra đời để giải quyết nỗi trăn trở đó – mong muốn có lối sống lành
+                        mạnh
+                        nhưng không đủ thời gian để thực hiện vì lịch trình quá bận rộn.
+                    </p>
+                    <p class="mb-3">
+                        Chúng tôi hiểu rằng không phải ai cũng có thể vừa hoàn thành công việc vừa đảm bảo bữa ăn đúng
+                        chuẩn sức khỏe.
+                        Bằng cách đơn giản nhất, <strong>Eat Clean</strong> muốn mang đến cho khách hàng những bữa ăn
+                        <em>sạch – ngon – tiện lợi</em>.
+                    </p>
                 </div>
             </div>
-            <div class="d-flex flex-wrap gap-2 mb-4" id="categoryChips">
-                <span class="category-chip active" data-category="all">Tất cả</span>
-                <span class="category-chip" data-category="granola">Granola</span>
-                <span class="category-chip" data-category="banh">Bánh eat clean</span>
-                <span class="category-chip" data-category="snack">Snack lành mạnh</span>
-                <span class="category-chip" data-category="combo">Combo tiết kiệm</span>
-            </div>
 
-            <div class="row g-4" id="productGrid">
-                <!-- Product card template examples -->
-                <div class="col-6 col-md-4 col-lg-3" data-name="granola cacao" data-category="granola">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Granola cacao" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Granola Cacao 300g</h6>
-                            <div class="small text-muted mb-2">Ít đường • Hạt tổng hợp</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">129.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Granola Cacao 300g"
-                                    data-price="129000"><i class="bi bi-bag-plus"></i> Thêm</button>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4 class="fw-bold mb-3" style="color: #2e7d32;">Tầm nhìn, Sứ mệnh & Giá trị cốt lõi</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🌿 Sạch</h6>
+                                <p class="mb-0 small">
+                                    Cam kết tuyệt đối về nguồn gốc nguyên liệu rõ ràng, minh bạch, organic hoặc VietGAP.
+                                    Quy trình chế biến đạt chuẩn vệ sinh an toàn thực phẩm.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="granola honey" data-category="granola">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Granola mật ong" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Granola Mật Ong 300g</h6>
-                            <div class="small text-muted mb-2">Không chất bảo quản</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">125.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Granola Mật Ong 300g"
-                                    data-price="125000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">⚡ Tiện lợi</h6>
+                                <p class="mb-0 small">
+                                    Đơn giản hoá trải nghiệm khách hàng từ khâu đặt hàng, thanh toán đến giao nhận.
+                                    Bao bì thân thiện, phù hợp nhịp sống hiện đại.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="banh chuoi" data-category="banh">
-                    <div class="card product-card h-100">
-                        <img src="./img/banh-chuoi.jpg" class="card-img-top fit-cover" alt="Bánh chuối yến mạch"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Bánh Chuối Yến Mạch</h6>
-                            <div class="small text-muted mb-2">Không bột mì • Ít đường</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">59.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Bánh Chuối Yến Mạch"
-                                    data-price="59000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🥗 Dinh dưỡng</h6>
+                                <p class="mb-0 small">
+                                    Thực đơn được xây dựng bởi chuyên gia dinh dưỡng, cân bằng nhóm chất đa – vi lượng,
+                                    cung cấp năng lượng tối ưu mỗi ngày.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="snack hat mix" data-category="snack">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Snack hạt mix" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Snack Hạt Mix 150g</h6>
-                            <div class="small text-muted mb-2">Giàu chất xơ, tốt cho tim mạch</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">79.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Snack Hạt Mix 150g"
-                                    data-price="79000"><i class="bi bi-bag-plus"></i> Thêm</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="combo an kieng" data-category="combo">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Combo ăn kiêng" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Combo Eat Clean 5 bữa</h6>
-                            <div class="small text-muted mb-2">Tiết kiệm 12% so với lẻ</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">499.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Combo Eat Clean 5 bữa"
-                                    data-price="499000"><i class="bi bi-bag-plus"></i> Thêm</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="granola matcha" data-category="granola">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Granola Matcha" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Granola Matcha 300g</h6>
-                            <div class="small text-muted mb-2">Thanh nhẹ, vị trà xanh tự nhiên</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">135.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Granola Matcha 300g"
-                                    data-price="135000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="banh protein bar" data-category="banh">
-                    <div class="card product-card h-100">
-                        <img src="./img/protein-hanh-nhan.jpg" class="card-img-top fit-cover" alt="Protein Bar"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Thanh Protein Hạnh Nhân</h6>
-                            <div class="small text-muted mb-2">20g protein • Không đường tinh luyện</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">45.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Thanh Protein Hạnh Nhân"
-                                    data-price="45000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="banh cookie yến mạch" data-category="banh">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Cookie Yến Mạch" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Cookie Yến Mạch Dừa</h6>
-                            <div class="small text-muted mb-2">Giòn nhẹ • Không chất bảo quản</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">55.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Cookie Yến Mạch Dừa"
-                                    data-price="55000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="snack rong bien" data-category="snack">
-                    <div class="card product-card h-100">
-                        <img src="./img/snack-rong-bien-say.jpg" class="card-img-top fit-cover" alt="Snack Rong Biển"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Snack Rong Biển Sấy</h6>
-                            <div class="small text-muted mb-2">Ít muối • Giàu i-ốt</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">39.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Snack Rong Biển Sấy"
-                                    data-price="39000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="combo granola mix" data-category="combo">
-                    <div class="card product-card h-100">
-                        <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?q=80&w=1200&auto=format&fit=crop"
-                            class="card-img-top fit-cover" alt="Combo Granola Mix" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Combo Granola Mix 3 vị</h6>
-                            <div class="small text-muted mb-2">Matcha • Cacao • Mật ong</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">360.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Combo Granola Mix 3 vị"
-                                    data-price="360000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="combo eat clean 7 ngay" data-category="combo">
-                    <div class="card product-card h-100">
-                        <img src="./img/combo-eat-clean-7-ngay.jpg" class="card-img-top fit-cover" alt="Combo 7 ngày"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Combo Eat Clean 7 ngày</h6>
-                            <div class="small text-muted mb-2">Thực đơn 7 bữa cân đối • Giảm 15%</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">699.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Combo Eat Clean 7 ngày"
-                                    data-price="699000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="snack granola bar" data-category="snack">
-                    <div class="card product-card h-100">
-                        <img src="./img/granola-dua-nuong.jpg" class="card-img-top fit-cover" alt="Granola Bar"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Thanh Granola Dừa Nướng</h6>
-                            <div class="small text-muted mb-2">Snack tiện lợi, năng lượng sạch</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">49.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Thanh Granola Dừa Nướng"
-                                    data-price="49000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="banh pancake protein" data-category="banh">
-                    <div class="card product-card h-100">
-                        <img src="./img/pancake-chuoi.jpg" class="card-img-top fit-cover" alt="Pancake Protein"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Pancake Protein Chuối</h6>
-                            <div class="small text-muted mb-2">20g protein • Nguyên liệu tự nhiên</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">69.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Pancake Protein Chuối"
-                                    data-price="69000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="granola choco berry" data-category="granola">
-                    <div class="card product-card h-100">
-                        <img src="./img/granola-choco-berry.jpg" class="card-img-top fit-cover"
-                            alt="Granola Choco Berry" height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Granola Choco Berry 250g</h6>
-                            <div class="small text-muted mb-2">Cacao nguyên chất • Dâu sấy khô</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">139.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Granola Choco Berry 250g"
-                                    data-price="139000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-3" data-name="snack hat dieu" data-category="snack">
-                    <div class="card product-card h-100">
-                        <img src="./img/snack-hat-dieu.jpg" class="card-img-top fit-cover" alt="Snack Hạt Điều"
-                            height="180" />
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="fw-semibold mb-1">Snack Hạt Điều Rang Mộc</h6>
-                            <div class="small text-muted mb-2">Không muối • Không dầu chiên</div>
-                            <div class="d-flex align-items-center justify-content-between mt-auto">
-                                <span class="price">59.000đ</span>
-                                <button class="btn btn-sm btn-he add-cart" data-title="Snack Hạt Điều Rang Mộc"
-                                    data-price="59000">
-                                    <i class="bi bi-bag-plus"></i> Thêm
-                                </button>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🔍 Minh bạch</h6>
+                                <p class="mb-0 small">
+                                    Công khai thành phần, calo và nguồn gốc nguyên liệu trên bao bì và kênh truyền
+                                    thông,
+                                    xây dựng niềm tin vững chắc với khách hàng.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -456,101 +246,24 @@
         </div>
     </section>
 
-    <!-- WEEKLY MENU -->
-    <section class="py-5" id="menu-tuan">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-                <h2 class="section-title m-0">Menu tuần</h2>
-                <div class="text-muted">Linh hoạt đổi món • Cân bằng dinh dưỡng</div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 2</h5>
-                            <span class="badge text-bg-light">~ 450 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Ức gà áp chảo sốt chanh dây</li>
-                            <li>• Khoai lang nướng + salad rocket</li>
-                            <li>• Sữa chua Hy Lạp + granola</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 3</h5>
-                            <span class="badge text-bg-light">~ 480 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Cá hồi nướng sốt teriyaki</li>
-                            <li>• Gạo lứt + bông cải hấp</li>
-                            <li>• Tráng miệng trái cây theo mùa</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 4</h5>
-                            <span class="badge text-bg-light">~ 430 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Bò áp chảo sốt tiêu đen</li>
-                            <li>• Khoai tây nghiền sữa hạt</li>
-                            <li>• Salad dưa leo + cà chua bi</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 5</h5>
-                            <span class="badge text-bg-light">~ 460 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Tôm xào bông cải xanh</li>
-                            <li>• Miến khoai + nấm đông cô</li>
-                            <li>• Yaourt ít đường</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 6</h5>
-                            <span class="badge text-bg-light">~ 440 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Ức gà xé trộn ngũ quả</li>
-                            <li>• Bún gạo lứt</li>
-                            <li>• Pudding hạt chia</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4 rounded-3 border menu-day h-100 bg-white">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h5 class="mb-0">Thứ 7</h5>
-                            <span class="badge text-bg-light">~ 500 kcal</span>
-                        </div>
-                        <ul class="list-unstyled mb-0">
-                            <li>• Nui nguyên cám sốt cà chua</li>
-                            <li>• Thịt bò bằm + nấm</li>
-                            <li>• Salad xanh</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <style>
+        #about {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        #about.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
     <!-- BUNDLES / SUBSCRIPTIONS -->
-    <section class="py-5 bg-light" id="goi-an">
+    <section class="py-5 border-bottom bg-light" id="goi-an">
         <div class="container">
             <div class="text-center mb-4">
-                <h2 class="section-title">Gói ăn theo tuần</h2>
+                <h2 class="section-title">Combo Tiện Lợi</h2>
                 <p class="text-muted">Tiện lợi, giao mỗi ngày, tùy chọn khẩu phần.</p>
             </div>
             <div class="row g-4">
@@ -558,16 +271,12 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center justify-content-between mb-1">
-                                <h5 class="mb-0">Gói Basic</h5>
+                                <h5 class="mb-0">Combo Balance</h5>
                                 <span class="badge badge-he">Phổ biến</span>
                             </div>
-                            <p class="text-muted">5 bữa/tuần • ~450 kcal</p>
-                            <h3 class="mb-3">1.599.000đ <small class="text-muted fs-6">/tuần</small></h3>
-                            <ul class="mb-4">
-                                <li>Chọn 2 lần đổi món</li>
-                                <li>Miễn phí giao nội thành</li>
-                                <li>Hỗ trợ tư vấn dinh dưỡng</li>
-                            </ul>
+                            <p class="text-muted">500~600 kcal/suất</p>
+                            <p>Phù hợp cho các đối tượng khách hàng là nhân viên văn phòng, sinh viên có mong muốn duy
+                                trì cân nặng và có một bữa ăn đủ chất</p>
                             <a class="btn btn-he mt-auto subscribe-btn" data-plan="Basic" data-price="1599000">Đăng
                                 ký</a>
                         </div>
@@ -577,16 +286,12 @@
                     <div class="card h-100 border-2 border-success">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center justify-content-between mb-1">
-                                <h5 class="mb-0">Gói Plus</h5>
+                                <h5 class="mb-0">Combo Build</h5>
                                 <span class="badge text-bg-success">Tiết kiệm 10%</span>
                             </div>
-                            <p class="text-muted">10 bữa/tuần • ~480 kcal</p>
-                            <h3 class="mb-3">2.879.000đ <small class="text-muted fs-6">/tuần</small></h3>
-                            <ul class="mb-4">
-                                <li>Chọn 5 lần đổi món</li>
-                                <li>Miễn phí giao + quà tặng</li>
-                                <li>Ưu tiên xử lý đơn</li>
-                            </ul>
+                            <p class="text-muted">700~800 kcal</p>
+                            <p>Phù hợp với đối tượng khách hàng là người tập gym có mong muốn xây dựng cơ bắp.
+                            </p>
                             <a class="btn btn-he mt-auto subscribe-btn" data-plan="Plus" data-price="2879000">Đăng
                                 ký</a>
                         </div>
@@ -596,16 +301,12 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center justify-content-between mb-1">
-                                <h5 class="mb-0">Gói Family</h5>
+                                <h5 class="mb-0">Combo Slim</h5>
                                 <span class="badge text-bg-dark">Mới</span>
                             </div>
-                            <p class="text-muted">15 bữa/tuần • 2-3 người</p>
-                            <h3 class="mb-3">4.190.000đ <small class="text-muted fs-6">/tuần</small></h3>
-                            <ul class="mb-4">
-                                <li>Đa dạng 12+ món/tuần</li>
-                                <li>Lịch giao linh hoạt</li>
-                                <li>Hậu mãi riêng</li>
-                            </ul>
+                            <p class="text-muted">400~500 kcal/suất</p>
+                            <p>Phù hợp với đối tượng khách hàng có mong muốn giảm cân, cắt giảm tinh bột, tăng cường rau
+                                xanh và protein nạc.</p>
                             <a class="btn btn-he mt-auto subscribe-btn" data-plan="Family" data-price="4190000">Đăng
                                 ký</a>
                         </div>
@@ -630,7 +331,7 @@
                                 class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                 class="bi bi-star-fill"></i>
                         </div>
-                        <p class="mb-3">Granola giòn, ngọt nhẹ. Ăn sáng với sữa chua siêu hợp lý.</p>
+                        <p class="mb-3">Mới phát hiện 1 shop bán đồ siêu ngon, rất recommend mọi người trải nghiệm!</p>
                         <div class="d-flex align-items-center gap-2">
                             <img class="rounded-circle" src="https://i.pravatar.cc/48?img=12" width="40" height="40"
                                 alt="avatar">
@@ -648,13 +349,14 @@
                                 class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                 class="bi bi-star-half"></i>
                         </div>
-                        <p class="mb-3">Giao nhanh, đóng gói kỹ. Bánh ăn kiêng mềm ẩm, không bị khô.</p>
+                        <p class="mb-3">Giao nhanh, đóng gói kỹ. Đồ ăn siêu ngon siêu chất lượng. Shop xứng đáng 100
+                            điểm!</p>
                         <div class="d-flex align-items-center gap-2">
                             <img class="rounded-circle" src="https://i.pravatar.cc/48?img=32" width="40" height="40"
                                 alt="avatar">
                             <div>
                                 <div class="fw-semibold">Minh Phúc</div>
-                                <div class="small text-muted">Hà Nội</div>
+                                <div class="small text-muted">Quận 3, TP. HCM</div>
                             </div>
                         </div>
                     </div>
@@ -666,13 +368,13 @@
                                 class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                 class="bi bi-star-fill"></i>
                         </div>
-                        <p class="mb-3">Đăng ký gói ăn 2 tuần, cân nặng giảm 1.8kg mà vẫn đủ năng lượng.</p>
+                        <p class="mb-3">Đăng ký combo 2 tuần, cân nặng giảm 1.8kg mà vẫn đủ năng lượng.</p>
                         <div class="d-flex align-items-center gap-2">
                             <img class="rounded-circle" src="https://i.pravatar.cc/48?img=5" width="40" height="40"
                                 alt="avatar">
                             <div>
                                 <div class="fw-semibold">Bảo Trân</div>
-                                <div class="small text-muted">Đà Nẵng</div>
+                                <div class="small text-muted">TP. HCM</div>
                             </div>
                         </div>
                     </div>
@@ -692,7 +394,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><i class="bi bi-telephone me-2"></i> 0899 999 888</li>
                         <li class="mb-2"><i class="bi bi-messenger me-2"></i> Facebook Messenger</li>
-                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> TP.HCM • Hà Nội • Đà Nẵng</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> TP.HCM</li>
                         <li class="mb-2"><i class="bi bi-clock me-2"></i> 08:00 – 20:00 (T2 - CN)</li>
                     </ul>
                 </div>
@@ -711,7 +413,7 @@
                                 <div class="col-12">
                                     <label class="form-label">Nội dung</label>
                                     <textarea rows="3" class="form-control"
-                                        placeholder="Mình muốn tư vấn gói ăn…"></textarea>
+                                        placeholder="Mình muốn tư vấn combo…"></textarea>
                                 </div>
                                 <div class="col-12 d-grid">
                                     <button class="btn btn-he" type="submit">Gửi yêu cầu</button>
@@ -732,7 +434,7 @@
                         <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
                             style="width:36px;height:36px;background:#2e7d32;color:#fff"><i
                                 class="bi bi-egg-fried"></i></span>
-                        <strong>Eat Clean</strong>
+                        <strong>EATLY</strong>
                     </div>
                     <p class="text-white-50">Thực phẩm lành mạnh, nguyên liệu chọn lọc, bếp đạt chuẩn VSATTP. Đồng hành
                         cùng bạn ăn ngon mỗi ngày.</p>
@@ -752,139 +454,17 @@
                         <input type="email" class="form-control" placeholder="Email của bạn" required />
                         <button class="btn btn-he" type="submit">Đăng ký</button>
                     </form>
-                    <div class="small text-white-50 mt-3">© 2025 Eat Clean. All rights reserved.</div>
+                    <div class="small text-white-50 mt-3">© 2025 EATLY. All rights reserved.</div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Offcanvas Cart -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcart">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title"><i class="bi bi-bag me-2"></i>Giỏ hàng</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body d-flex flex-column">
-            <ul id="cartList" class="list-group list-group-flush mb-3"></ul>
-            <div class="mt-auto">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <strong>Tổng</strong>
-                    <strong id="cartTotal">0đ</strong>
-                </div>
-                <button class="btn btn-he w-100" disabled id="checkoutBtn">Thanh toán</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
-        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i class="bi bi-check2-circle me-2"></i>
-                <strong class="me-auto">Đã thêm vào giỏ</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-            </div>
-            <div class="toast-body">Sản phẩm đã được thêm.</div>
-        </div>
-    </div>
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        const chips = document.querySelectorAll('.category-chip');
-        const grid = document.getElementById('productGrid');
-        const searchInput = document.getElementById('searchInput');
-        const toastEl = document.getElementById('toast');
-        const toast = new bootstrap.Toast(toastEl, {
-            delay: 1600
-        });
-        const cartList = document.getElementById('cartList');
-        const cartBadge = document.getElementById('cartBadge');
-        const cartTotalEl = document.getElementById('cartTotal');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-
-        let cart = [];
-
-        function formatVND(n) {
-            return n.toLocaleString('vi-VN') + 'đ'
-        }
-
-        function renderCart() {
-            cartList.innerHTML = '';
-            let sum = 0;
-            cart.forEach((item, idx) => {
-                sum += item.price * item.qty;
-                const li = document.createElement('li');
-                li.className = 'list-group-item d-flex align-items-center justify-content-between';
-                li.innerHTML = `
-            <div>
-              <div class="fw-semibold">${item.title}</div>
-              <div class="small text-muted">${formatVND(item.price)} × ${item.qty}</div>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-              <button class="btn btn-sm btn-outline-secondary" data-idx="${idx}" data-act="dec"><i class="bi bi-dash"></i></button>
-              <button class="btn btn-sm btn-outline-secondary" data-idx="${idx}" data-act="inc"><i class="bi bi-plus"></i></button>
-              <button class="btn btn-sm btn-outline-danger" data-idx="${idx}" data-act="del"><i class="bi bi-trash"></i></button>
-            </div>`;
-                cartList.appendChild(li);
-            });
-            cartBadge.textContent = cart.reduce((a, b) => a + b.qty, 0);
-            cartTotalEl.textContent = formatVND(sum);
-            checkoutBtn.disabled = cart.length === 0;
-        }
-
-        function upsertCart(title, price) {
-            const found = cart.find(x => x.title === title);
-            if (found) {
-                found.qty++;
-            } else {
-                cart.push({
-                    title,
-                    price: Number(price),
-                    qty: 1
-                });
-            }
-            renderCart();
-        }
-
-        document.addEventListener('click', (e) => {
-            const addBtn = e.target.closest('.add-cart');
-            if (addBtn) {
-                upsertCart(addBtn.dataset.title, addBtn.dataset.price);
-                toast.show();
-            }
-            if (e.target.closest('[data-act]')) {
-                const btn = e.target.closest('[data-act]');
-                const idx = +btn.dataset.idx;
-                const act = btn.dataset.act;
-                if (act === 'inc') cart[idx].qty++;
-                if (act === 'dec') cart[idx].qty = Math.max(1, cart[idx].qty - 1);
-                if (act === 'del') cart.splice(idx, 1);
-                renderCart();
-            }
-        });
-
-        // Filter by category
-        chips.forEach(ch => ch.addEventListener('click', () => {
-            chips.forEach(c => c.classList.remove('active'));
-            ch.classList.add('active');
-            const cat = ch.dataset.category;
-            [...grid.children].forEach(col => {
-                const ok = cat === 'all' || col.dataset.category === cat;
-                col.style.display = ok ? '' : 'none';
-            });
-        }));
-
-        // Search by name
-        searchInput.addEventListener('input', () => {
-            const q = searchInput.value.trim().toLowerCase();
-            [...grid.children].forEach(col => {
-                const ok = col.dataset.name.includes(q);
-                col.style.display = ok ? '' : 'none';
-            });
-        });
 
         // Forms demo
         document.getElementById('newsletter').addEventListener('submit', (e) => {
@@ -902,6 +482,18 @@
             const off = bootstrap.Offcanvas.getOrCreateInstance('#offcart');
             off.show();
         }));
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const about = document.getElementById("about");
+            const showAbout = () => {
+                if (window.scrollY > about.offsetTop - window.innerHeight / 1.3) {
+                    about.classList.add("show");
+                }
+            };
+            window.addEventListener("scroll", showAbout);
+            showAbout();
+        });
     </script>
 </body>
 
