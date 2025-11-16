@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EATLY - Giao nhanh - Ăn Sạch - Sống khỏe</title>
+    <meta name="description" content="EATLY - Giao nhanh - Ăn Sạch - Sống khỏe" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <style>
+        :root {
+            --he-primary: #2e7d32;
+            /* xanh lá */
+            --he-accent: #ffb300;
+            /* vàng đậm */
+            --he-dark: #1b1f1b;
+        }
+
+        html,
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        .navbar-brand b {
+            color: var(--he-primary)
+        }
+
+        .btn-he {
+            background: var(--he-primary);
+            color: #fff;
+            border: 0;
+        }
+
+        .btn-he:hover {
+            background: #256a29;
+            color: #fff
+        }
+
+        .badge-he {
+            background: var(--he-accent);
+        }
+
+        .hero {
+            background: linear-gradient(180deg, rgba(46, 125, 50, .10), transparent 60%), url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 60vh;
+        }
+
+        .hero .overlay {
+            backdrop-filter: blur(1px);
+            background: rgba(255, 255, 255, .55);
+        }
+
+        .category-chip {
+            border: 1px solid #e8e8e8;
+            border-radius: 999px;
+            padding: .375rem .75rem;
+            cursor: pointer
+        }
+
+        .category-chip.active {
+            background: var(--he-primary);
+            color: #fff;
+            border-color: var(--he-primary)
+        }
+
+        .product-card {
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .06)
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--he-primary)
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+
+        .rating i {
+            color: #ffb300
+        }
+
+        .menu-day {
+            border-left: 4px solid var(--he-primary)
+        }
+
+        .footer a {
+            color: #ced4da
+        }
+
+        .footer a:hover {
+            color: #fff
+        }
+
+        /* small helpers */
+        .fit-cover {
+            object-fit: cover
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <!-- <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                    style="width:36px;height:36px;background:#e8f3ea;color:var(--ec-primary)">
+                    <img src="/img/Logo_EATLY.png" alt="">
+                </span> -->
+                <img src="img/Logo_EATLY.png" height="100px" width="100px" alt="logo">
+
+                <!-- <b>EATLY</b> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navs">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navs">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Công cụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Liên hệ</a></li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center gap-3">
+                    <a href="#" class="position-relative text-decoration-none" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcart">
+                        <i class="bi bi-bag fs-4"></i>
+                        <span id="cartBadge"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                    <a class="btn btn-he" href="products.html">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero d-flex align-items-center">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-4 p-md-5 rounded-4 shadow-sm overlay">
+                        <div class="d-flex align-items-center gap-2 mb-2"><span class="badge badge-he">Eat clean mỗi
+                                ngày</span><span class="small text-muted">Giao nhanh trong ngày</span></div>
+                        <h1 class="display-5 fw-bold">Giao nhanh - Ăn Sạch - Sống khỏe</h1>
+                        <p class="lead mb-4">Thực phẩm và Đồ uống, chuyên cung cấp các bữa ăn chế biến sẵn.</p>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-he btn-lg" href="products.html"><i class="bi bi-cart-plus me-1"></i> Xem
+                                sản
+                                phẩm</a>
+                            <a class="btn btn-outline-dark btn-lg" href="#goi-an">Khám phá combo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Giới thiệu thương hiệu -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6">
+                    <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                        style="width:300px;height:300px;background:#e8f3ea;color:var(--ec-primary)">
+                        <img src="img/Logo_EATLY.png" width="200px" height="200px" alt="">
+
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3" style="color: #2e7d32;">CÂU CHUYỆN THƯƠNG HIỆU</h2>
+                    <p class="mb-3">
+                        Giữa cuộc sống nhộn nhịp hối hả của đất Sài Gòn này, những bữa ăn càng trở nên nhanh chóng bởi
+                        công việc,
+                        deadline và tăng ca bận rộn khiến chúng ta “lười hơn” trong việc ăn uống.
+                        <strong style="color: #2e7d32;">EATLY</strong> ra đời để giải quyết nỗi trăn trở đó – mong muốn
+                        có lối sống lành
+                        mạnh
+                        nhưng không đủ thời gian để thực hiện vì lịch trình quá bận rộn.
+                    </p>
+                    <p class="mb-3">
+                        Chúng tôi hiểu rằng không phải ai cũng có thể vừa hoàn thành công việc vừa đảm bảo bữa ăn đúng
+                        chuẩn sức khỏe.
+                        Bằng cách đơn giản nhất, <strong style="color: #2e7d32;">EATLY</strong> muốn mang đến cho khách
+                        hàng những bữa ăn
+                        <em>sạch – ngon – tiện lợi</em>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h4 class="fw-bold mb-3" style="color: #2e7d32;">CHÚNG TÔI CAM KẾT</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🌿 Sạch</h6>
+                                <p class="mb-0 small">
+                                    Cam kết tuyệt đối về nguồn gốc nguyên liệu rõ ràng, minh bạch, organic hoặc VietGAP.
+                                    Quy trình chế biến đạt chuẩn vệ sinh an toàn thực phẩm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">⚡ Tiện lợi</h6>
+                                <p class="mb-0 small">
+                                    Đơn giản hoá trải nghiệm khách hàng từ khâu đặt hàng, thanh toán đến giao nhận.
+                                    Bao bì thân thiện, phù hợp nhịp sống hiện đại.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🥗 Dinh dưỡng</h6>
+                                <p class="mb-0 small">
+                                    Thực đơn được xây dựng bởi chuyên gia dinh dưỡng, cân bằng nhóm chất đa – vi lượng,
+                                    cung cấp năng lượng tối ưu mỗi ngày.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white shadow-sm rounded-4 h-100">
+                                <h6 class="fw-bold text-success mb-2">🔍 Minh bạch</h6>
+                                <p class="mb-0 small">
+                                    Công khai thành phần, calo và nguồn gốc nguyên liệu trên bao bì và kênh truyền
+                                    thông,
+                                    xây dựng niềm tin vững chắc với khách hàng.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        #about {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        #about.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- BUNDLES / SUBSCRIPTIONS -->
+    <section class="py-5 border-bottom bg-light" id="goi-an">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title">Combo Tiện Lợi</h2>
+                <p class="text-muted">Tiện lợi, giao mỗi ngày, tùy chọn khẩu phần.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Balance</h5>
+                                <span class="badge badge-he">Phổ biến</span>
+                            </div>
+                            <p class="text-muted">500~600 kcal/suất</p>
+                            <p>Phù hợp cho các đối tượng khách hàng là nhân viên văn phòng, sinh viên có mong muốn duy
+                                trì cân nặng và có một bữa ăn đủ chất</p>
+                            <a class="btn btn-he mt-auto subscribe-btn" data-plan="Basic" data-price="1599000"
+                                href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-2 border-success">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Build</h5>
+                                <span class="badge text-bg-success">Tiết kiệm 10%</span>
+                            </div>
+                            <p class="text-muted">700~800 kcal</p>
+                            <p>Phù hợp với đối tượng khách hàng là người tập gym có mong muốn xây dựng cơ bắp.
+                            </p>
+                            <a class="btn btn-he mt-auto subscribe-btn" data-plan="Plus" data-price="2879000"
+                                href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Slim</h5>
+                                <span class="badge text-bg-dark">Mới</span>
+                            </div>
+                            <p class="text-muted">400~500 kcal/suất</p>
+                            <p>Phù hợp với đối tượng khách hàng có mong muốn giảm cân, cắt giảm tinh bột, tăng cường rau
+                                xanh và protein nạc.</p>
+                            <a class="btn btn-he mt-auto subscribe-btn" data-plan="Family" data-price="4190000"
+                                href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-5" id="khach-hang">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Khách hàng nói gì</h2>
+                <p class="text-muted">Điểm trung bình 4.9/5 từ 1,200+ lượt đánh giá</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border h-100">
+                        <div class="d-flex align-items-center gap-2 mb-2 rating">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-3">Mới phát hiện 1 shop bán đồ siêu ngon, rất recommend mọi người trải nghiệm!</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <img class="rounded-circle" src="https://i.pravatar.cc/48?img=12" width="40" height="40"
+                                alt="avatar">
+                            <div>
+                                <div class="fw-semibold">Ngọc Anh</div>
+                                <div class="small text-muted">Quận 1, TP.HCM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border h-100">
+                        <div class="d-flex align-items-center gap-2 mb-2 rating">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-half"></i>
+                        </div>
+                        <p class="mb-3">Giao nhanh, đóng gói kỹ. Đồ ăn siêu ngon siêu chất lượng. Shop xứng đáng 100
+                            điểm!</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <img class="rounded-circle" src="https://i.pravatar.cc/48?img=32" width="40" height="40"
+                                alt="avatar">
+                            <div>
+                                <div class="fw-semibold">Minh Phúc</div>
+                                <div class="small text-muted">Quận 3, TP. HCM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border h-100">
+                        <div class="d-flex align-items-center gap-2 mb-2 rating">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="mb-3">Đăng ký combo 2 tuần, cân nặng giảm 1.8kg mà vẫn đủ năng lượng.</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <img class="rounded-circle" src="https://i.pravatar.cc/48?img=5" width="40" height="40"
+                                alt="avatar">
+                            <div>
+                                <div class="fw-semibold">Bảo Trân</div>
+                                <div class="small text-muted">TP. HCM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-5 bg-light" id="lien-he">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Liên hệ & Đặt hàng</h2>
+                    <p class="text-muted">Inbox fanpage hoặc để lại thông tin, đội ngũ sẽ phản hồi trong giờ làm việc.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-telephone me-2"></i> 0899 999 888
+                        </li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-messenger me-2"></i> Facebook
+                            Messenger</li>
+                        <li class="mb-2"><img src="img/logo-zalo.png" width="25px" height="25px" alt=""> Zalo</li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-geo-alt me-2"></i> TP.HCM</li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-clock me-2"></i> 08:00 – 20:00 (T2 -
+                            CN)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form id="contactForm" class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Họ tên</label>
+                                    <input required type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Số điện thoại</label>
+                                    <input required type="tel" class="form-control" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Nội dung</label>
+                                    <textarea rows="3" class="form-control"
+                                        placeholder="Mình muốn tư vấn combo…"></textarea>
+                                </div>
+                                <div class="col-12 d-grid">
+                                    <button class="btn btn-he" type="submit">Gửi yêu cầu</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-white py-5" id="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                            style="width:36px;height:36px;background:#2e7d32;color:#fff"><i
+                                class="bi bi-egg-fried"></i></span>
+                        <strong>EATLY</strong>
+                    </div>
+                    <p class="text-white-50">Thực phẩm lành mạnh, nguyên liệu chọn lọc, bếp đạt chuẩn VSATTP. Đồng hành
+                        cùng bạn ăn ngon mỗi ngày.</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="fw-semibold mb-2">Danh mục</div>
+                    <ul class="list-unstyled text-white-50">
+                        <li><a class="text-decoration-none" href="index.html">Giới thiệu</a></li>
+                        <li><a class="text-decoration-none" href="products.html">Sản phẩm</a></li>
+                        <li><a class="text-decoration-none" href="tools.html">Công cụ</a></li>
+                        <li><a class="text-decoration-none" href="#lien-he">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="fw-semibold mb-2">Nhận ưu đãi</div>
+                    <form id="newsletter" class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Email của bạn" required />
+                        <button class="btn btn-he" type="submit">Đăng ký</button>
+                    </form>
+                    <div class="small text-white-50 mt-3">© 2025 EATLY. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        // Forms demo
+        document.getElementById('newsletter').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã đăng ký nhận ưu đãi!');
+        });
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Đã gửi yêu cầu! Chúng mình sẽ sớm liên hệ.');
+        });
+
+        // Subscribe buttons
+        document.querySelectorAll('.subscribe-btn').forEach(btn => btn.addEventListener('click', () => {
+            upsertCart(`Gói ${btn.dataset.plan} (tuần)`, btn.dataset.price);
+            const off = bootstrap.Offcanvas.getOrCreateInstance('#offcart');
+            off.show();
+        }));
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const about = document.getElementById("about");
+            const showAbout = () => {
+                if (window.scrollY > about.offsetTop - window.innerHeight / 1.3) {
+                    about.classList.add("show");
+                }
+            };
+            window.addEventListener("scroll", showAbout);
+            showAbout();
+        });
+    </script>
+</body>
+
+</html>

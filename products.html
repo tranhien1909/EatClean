@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EATLY - Sản phẩm</title>
+    <meta name="description" content="Danh sách sản phẩm EATLY" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <style>
+        :root {
+            --he-primary: #2e7d32;
+            /* xanh lá */
+            --he-accent: #ffb300;
+            /* vàng đậm */
+            --he-dark: #1b1f1b;
+        }
+
+        html,
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        .navbar-brand b {
+            color: var(--he-primary)
+        }
+
+        .btn-he {
+            background: var(--he-primary);
+            color: #fff;
+            border: 0;
+        }
+
+        .btn-he:hover {
+            background: #256a29;
+            color: #fff
+        }
+
+        .badge-he {
+            background: var(--he-accent);
+        }
+
+        .hero {
+            background: linear-gradient(180deg, rgba(46, 125, 50, .10), transparent 60%), url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 60vh;
+        }
+
+        .hero .overlay {
+            backdrop-filter: blur(1px);
+            background: rgba(255, 255, 255, .55);
+        }
+
+        .category-chip {
+            border: 1px solid #e8e8e8;
+            border-radius: 999px;
+            padding: .375rem .75rem;
+            cursor: pointer
+        }
+
+        .category-chip.active {
+            background: var(--he-primary);
+            color: #fff;
+            border-color: var(--he-primary)
+        }
+
+        .product-card {
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .06)
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--he-primary)
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+
+        .rating i {
+            color: #ffb300
+        }
+
+        .menu-day {
+            border-left: 4px solid var(--he-primary)
+        }
+
+        .footer a {
+            color: #ced4da
+        }
+
+        .footer a:hover {
+            color: #fff
+        }
+
+        /* small helpers */
+        .fit-cover {
+            object-fit: cover
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                    style="width:36px;height:36px;background:#e8f3ea;color:var(--ec-primary)">
+                    <i class="bi bi-egg-fried"></i>
+                </span>
+                <b>EATLY</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navs">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navs">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Công cụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Liên hệ</a></li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center gap-3">
+                    <a href="#" class="position-relative text-decoration-none" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcart">
+                        <i class="bi bi-bag fs-4"></i>
+                        <span id="cartBadge"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                    <a class="btn btn-he" href="#san-pham">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero d-flex align-items-center">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-4 p-md-5 rounded-4 shadow-sm overlay">
+                        <div class="d-flex align-items-center gap-2 mb-2"><span class="badge badge-he">Eat clean mỗi
+                                ngày</span><span class="small text-muted">Giao nhanh trong ngày</span></div>
+                        <h1 class="display-5 fw-bold">Giao nhanh - Ăn Sạch - Sống khỏe</h1>
+                        <p class="lead mb-4">Thực phẩm và Đồ uống, chuyên cung cấp các bữa ăn chế biến sẵn.</p>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-he btn-lg" href="products.html"><i class="bi bi-cart-plus me-1"></i> Xem
+                                sản
+                                phẩm</a>
+                            <a class="btn btn-outline-dark btn-lg" href="#goi-an">Khám phá combo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT SECTION -->
+    <section class="py-5 border-bottom" id="san-pham">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                <h2 class="section-title m-0">Thực đơn EATLY</h2>
+                <div class="input-group" style="max-width:340px">
+                    <span class="input-group-text bg-transparent"><i class="bi bi-search"></i></span>
+                    <input id="searchInput" type="search" class="form-control" placeholder="Tìm món, combo, nước ép…" />
+                </div>
+            </div>
+
+            <!-- Category Chips -->
+            <div class="d-flex flex-wrap gap-2 mb-4" id="categoryChips">
+                <span class="category-chip active" data-category="all">Tất cả</span>
+                <span class="category-chip" data-category="main">Bữa ăn chính</span>
+                <span class="category-chip" data-category="drink">Nước ép & Sinh tố</span>
+                <span class="category-chip" data-category="snack">Đồ ăn vặt healthy</span>
+                <span class="category-chip" data-category="combo">Combo ưu đãi</span>
+            </div>
+
+            <div class="row g-4" id="productGrid">
+                <!-- ========== BỮA ĂN CHÍNH ========== -->
+                <div class="col-6 col-md-4 col-lg-3" data-category="main">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top" alt="Gà nướng sốt teriyaki" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Gà nướng sốt Teriyaki</h6>
+                            <div class="small text-muted mb-2">Balance: 75.000đ • Build: 89.000đ • Slim: 79.000đ</div>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Gà nướng sốt Teriyaki"
+                                data-price="75000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="main">
+                    <div class="card product-card h-100">
+                        <img src="./img/ca-dieu-hong-hap-nam.jpg" class="card-img-top" alt="Cá diêu hồng hấp nấm"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Cá diêu hồng hấp nấm</h6>
+                            <div class="small text-muted mb-2">Balance: 79.000đ • Build: 92.000đ • Slim: 82.000đ</div>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Cá diêu hồng hấp nấm"
+                                data-price="79000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="main">
+                    <div class="card product-card h-100">
+                        <img src="./img/bo-ap-chao-mang-tay.jpg" class="card-img-top" alt="Bò áp chảo măng tây"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Bò áp chảo măng tây</h6>
+                            <div class="small text-muted mb-2">Balance: 85.000đ • Build: 99.000đ • Slim: 89.000đ</div>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Bò áp chảo măng tây"
+                                data-price="85000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="main">
+                    <div class="card product-card h-100">
+                        <img src="./img/thit-heo-sot-cam.jpg" class="card-img-top" alt="Thịt heo sốt cam" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Thịt heo sốt cam</h6>
+                            <div class="small text-muted mb-2">Balance: 79.000đ • Build: 92.000đ • Slim: 82.000đ</div>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Thịt heo sốt cam"
+                                data-price="79000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="main">
+                    <div class="card product-card h-100">
+                        <img src="./img/ca-hoi-sot-chanh-day.jpg" class="card-img-top" alt="Cá hồi sốt chanh dây"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Cá hồi sốt chanh dây</h6>
+                            <div class="small text-muted mb-2">Balance: 95.000đ • Build: 109.000đ • Slim: 99.000đ</div>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Cá hồi sốt chanh dây"
+                                data-price="95000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== NƯỚC ÉP & SINH TỐ ========== -->
+                <div class="col-6 col-md-4 col-lg-3" data-category="drink">
+                    <div class="card product-card h-100">
+                        <img src="./img/nuoc-ep-nang-luong-xanh.jpg" class="card-img-top" alt="Năng lượng xanh"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Nước ép Năng lượng xanh</h6>
+                            <div class="small text-muted mb-2">Thanh mát, giàu vitamin</div>
+                            <span class="price">45.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Nước ép năng lượng xanh"
+                                data-price="45000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="drink">
+                    <div class="card product-card h-100">
+                        <img src="./img/nuoc-ep-rang-ro-moi-ngay.jpg" class="card-img-top" alt="Rạng rỡ mỗi ngày"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Nước ép Rạng rỡ mỗi ngày</h6>
+                            <span class="price">45.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Rạng rỡ mỗi ngày"
+                                data-price="45000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="drink">
+                    <div class="card product-card h-100">
+                        <img src="./img/protein-power-smoothie.jpg" class="card-img-top" alt="Protein Power Smoothie"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Protein Power Smoothie</h6>
+                            <span class="price">55.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Protein Power Smoothie"
+                                data-price="55000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== SNACKS ========== -->
+                <div class="col-6 col-md-4 col-lg-3" data-category="snack">
+                    <div class="card product-card h-100">
+                        <img src="./img/thanh-nang-luong.jpg" class="card-img-top" alt="Thanh năng lượng Eat Clean"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Thanh năng lượng Eat Clean</h6>
+                            <span class="price">30.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Thanh năng lượng Eat Clean"
+                                data-price="30000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="snack">
+                    <div class="card product-card h-100">
+                        <img src="./img/sua-chua-hy-lap-va-granola.jpg" class="card-img-top"
+                            alt="Sữa chua Hy Lạp & Granola" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Sữa chua Hy Lạp & Granola</h6>
+                            <span class="price">30.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Sữa chua Hy Lạp & Granola"
+                                data-price="30000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="snack">
+                    <div class="card product-card h-100">
+                        <img src="./img/trung-luoc-long-dao.jpg" class="card-img-top" alt="Trứng luộc lòng đào"
+                            height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Trứng luộc lòng đào (2 quả)</h6>
+                            <span class="price">15.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Trứng luộc lòng đào"
+                                data-price="15000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== COMBO ƯU ĐÃI ========== -->
+                <div class="col-6 col-md-4 col-lg-3" data-category="combo">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top" alt="Bữa trưa năng lượng" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Combo Bữa trưa năng lượng</h6>
+                            <div class="small text-muted mb-2">1 Combo Balance + 1 Nước ép năng lượng xanh</div>
+                            <span class="price">109.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Combo Bữa trưa năng lượng"
+                                data-price="109000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="combo">
+                    <div class="card product-card h-100">
+                        <img src="./img/combo-tap-luyen.jpg" class="card-img-top" alt="Combo tập luyện" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Combo Tập luyện</h6>
+                            <div class="small text-muted mb-2">1 Combo Build + 1 Protein Power Smoothie</div>
+                            <span class="price">129.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Combo Tập luyện"
+                                data-price="129000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="combo">
+                    <div class="card product-card h-100">
+                        <img src="./img/combo-giu-dang-toan-dien.jpg" class="card-img-top"
+                            alt="Combo giữ dáng toàn diện" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Combo Giữ dáng toàn diện</h6>
+                            <div class="small text-muted mb-2">1 Combo Slim + 1 Sữa chua Hy Lạp & Granola</div>
+                            <span class="price">115.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Combo Giữ dáng toàn diện"
+                                data-price="115000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3" data-category="combo">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop"
+                            class="card-img-top" alt="Gói ăn tuần vui khỏe" height="180">
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="fw-semibold mb-1">Gói ăn tuần “5 ngày vui khỏe”</h6>
+                            <div class="small text-muted mb-2">5 Combo Balance cho 5 ngày (Thứ 2 - Thứ 6)</div>
+                            <span class="price">359.000đ</span>
+                            <button class="btn btn-sm btn-he add-cart mt-auto" data-title="Gói ăn tuần vui khỏe"
+                                data-price="359000"><i class="bi bi-bag-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUNDLES / SUBSCRIPTIONS -->
+    <section class="py-5 bg-light" id="goi-an">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title">Combo Tiện Lợi</h2>
+                <p class="text-muted">Tiện lợi, giao mỗi ngày, tùy chọn khẩu phần.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Balance</h5>
+                                <span class="badge badge-he">Phổ biến</span>
+                            </div>
+                            <p class="text-muted">500~600 kcal/suất</p>
+                            <p>Phù hợp cho các đối tượng khách hàng là nhân viên văn phòng, sinh viên có mong muốn duy
+                                trì cân nặng và có một bữa ăn đủ chất</p>
+                            <a class="btn btn-he mt-auto " href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-2 border-success">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Build</h5>
+                                <span class="badge text-bg-success">Tiết kiệm 10%</span>
+                            </div>
+                            <p class="text-muted">700~800 kcal</p>
+                            <p>Phù hợp với đối tượng khách hàng là người tập gym có mong muốn xây dựng cơ bắp.
+                            </p>
+                            <a class="btn btn-he mt-auto " href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <h5 class="mb-0">Combo Slim</h5>
+                                <span class="badge text-bg-dark">Mới</span>
+                            </div>
+                            <p class="text-muted">400~500 kcal/suất</p>
+                            <p>Phù hợp với đối tượng khách hàng có mong muốn giảm cân, cắt giảm tinh bột, tăng cường rau
+                                xanh và protein nạc.</p>
+                            <a class="btn btn-he mt-auto " href="#lien-he">Đăng
+                                ký</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-5 bg-light" id="lien-he">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Liên hệ & Đặt hàng</h2>
+                    <p class="text-muted">Inbox fanpage hoặc để lại thông tin, đội ngũ sẽ phản hồi trong giờ làm việc.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-telephone me-2"></i> 0899 999 888
+                        </li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-messenger me-2"></i> Facebook
+                            Messenger</li>
+                        <li class="mb-2"><img src="img/logo-zalo.png" width="25px" height="25px" alt=""> Zalo</li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-geo-alt me-2"></i> TP.HCM</li>
+                        <li class="mb-2" style="margin-left: 6px;"><i class="bi bi-clock me-2"></i> 08:00 – 20:00 (T2 -
+                            CN)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form id="contactForm" class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Họ tên</label>
+                                    <input required type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Số điện thoại</label>
+                                    <input required type="tel" class="form-control" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Nội dung</label>
+                                    <textarea rows="3" class="form-control"
+                                        placeholder="Mình muốn tư vấn combo…"></textarea>
+                                </div>
+                                <div class="col-12 d-grid">
+                                    <button class="btn btn-he" type="submit">Gửi yêu cầu</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-white py-5" id="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                            style="width:36px;height:36px;background:#2e7d32;color:#fff"><i
+                                class="bi bi-egg-fried"></i></span>
+                        <strong>EATLY</strong>
+                    </div>
+                    <p class="text-white-50">Thực phẩm lành mạnh, nguyên liệu chọn lọc, bếp đạt chuẩn VSATTP. Đồng hành
+                        cùng bạn ăn ngon mỗi ngày.</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="fw-semibold mb-2">Danh mục</div>
+                    <ul class="list-unstyled text-white-50">
+                        <li><a class="text-decoration-none" href="index.html">Giới thiệu</a></li>
+                        <li><a class="text-decoration-none" href="products.html">Sản phẩm</a></li>
+                        <li><a class="text-decoration-none" href="tools.html">Công cụ</a></li>
+                        <li><a class="text-decoration-none" href="#lien-he">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="fw-semibold mb-2">Nhận ưu đãi</div>
+                    <form id="newsletter" class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Email của bạn" required />
+                        <button class="btn btn-he" type="submit">Đăng ký</button>
+                    </form>
+                    <div class="small text-white-50 mt-3">© 2025 EATLY. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Offcanvas Cart -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcart">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title"><i class="bi bi-bag me-2"></i>Giỏ hàng</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <ul id="cartList" class="list-group list-group-flush mb-3"></ul>
+            <div class="mt-auto">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <strong>Tổng</strong>
+                    <strong id="cartTotal">0đ</strong>
+                </div>
+                <button class="btn btn-he w-100" disabled id="checkoutBtn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-check2-circle me-2"></i>
+                <strong class="me-auto">Đã thêm vào giỏ</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">Sản phẩm đã được thêm.</div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        const chips = document.querySelectorAll('#categoryChips .category-chip');
+        const searchInput = document.getElementById('searchInput');
+        const grid = document.getElementById('productGrid');
+        const toastEl = document.getElementById('toast');
+        const toast = new bootstrap.Toast(toastEl, {
+            delay: 1600
+        });
+        const cartList = document.getElementById('cartList');
+        const cartBadge = document.getElementById('cartBadge');
+        const cartTotalEl = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+
+        let cart = [];
+
+        function formatVND(n) {
+            return n.toLocaleString('vi-VN') + 'đ'
+        }
+
+        function renderCart() {
+            cartList.innerHTML = '';
+            let sum = 0;
+            cart.forEach((item, idx) => {
+                sum += item.price * item.qty;
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex align-items-center justify-content-between';
+                li.innerHTML = `
+            <div>
+              <div class="fw-semibold">${item.title}</div>
+              <div class="small text-muted">${formatVND(item.price)} × ${item.qty}</div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-sm btn-outline-secondary" data-idx="${idx}" data-act="dec"><i class="bi bi-dash"></i></button>
+              <button class="btn btn-sm btn-outline-secondary" data-idx="${idx}" data-act="inc"><i class="bi bi-plus"></i></button>
+              <button class="btn btn-sm btn-outline-danger" data-idx="${idx}" data-act="del"><i class="bi bi-trash"></i></button>
+            </div>`;
+                cartList.appendChild(li);
+            });
+            cartBadge.textContent = cart.reduce((a, b) => a + b.qty, 0);
+            cartTotalEl.textContent = formatVND(sum);
+            checkoutBtn.disabled = cart.length === 0;
+        }
+
+        function upsertCart(title, price) {
+            const found = cart.find(x => x.title === title);
+            if (found) {
+                found.qty++;
+            } else {
+                cart.push({
+                    title,
+                    price: Number(price),
+                    qty: 1
+                });
+            }
+            renderCart();
+        }
+
+        document.addEventListener('click', (e) => {
+            const addBtn = e.target.closest('.add-cart');
+            if (addBtn) {
+                upsertCart(addBtn.dataset.title, addBtn.dataset.price);
+                toast.show();
+            }
+            if (e.target.closest('[data-act]')) {
+                const btn = e.target.closest('[data-act]');
+                const idx = +btn.dataset.idx;
+                const act = btn.dataset.act;
+                if (act === 'inc') cart[idx].qty++;
+                if (act === 'dec') cart[idx].qty = Math.max(1, cart[idx].qty - 1);
+                if (act === 'del') cart.splice(idx, 1);
+                renderCart();
+            }
+        });
+
+        // Bắt sự kiện click cho từng chip
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                filterProducts();
+            });
+        });
+
+        // Bắt sự kiện gõ từ khóa tìm kiếm
+        searchInput.addEventListener('input', filterProducts);
+
+        // Hàm lọc sản phẩm
+        function filterProducts() {
+            const activeCategory = document.querySelector('.category-chip.active').dataset.category;
+            const keyword = searchInput.value.trim().toLowerCase();
+
+            [...grid.children].forEach(col => {
+                const categoryMatch = activeCategory === 'all' || col.dataset.category === activeCategory;
+                const title = col.querySelector('h6')?.textContent.toLowerCase() || '';
+                const searchMatch = !keyword || title.includes(keyword);
+
+                // Hiển thị hoặc ẩn với hiệu ứng mượt
+                if (categoryMatch && searchMatch) {
+                    col.style.display = 'block';
+                    col.classList.add('fade-in');
+                } else {
+                    col.style.display = 'none';
+                    col.classList.remove('fade-in');
+                }
+            });
+        }
+
+        // Thêm class hiệu ứng vào CSS
+        const style = document.createElement('style');
+        style.innerHTML = `
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}`;
+        document.head.appendChild(style);
+
+        // Forms demo
+        document.getElementById('newsletter').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã đăng ký nhận ưu đãi!');
+        });
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Đã gửi yêu cầu! Chúng mình sẽ sớm liên hệ.');
+        });
+
+        // Subscribe buttons
+        document.querySelectorAll('.subscribe-btn').forEach(btn => btn.addEventListener('click', () => {
+            upsertCart(`Gói ${btn.dataset.plan} (tuần)`, btn.dataset.price);
+            const off = bootstrap.Offcanvas.getOrCreateInstance('#offcart');
+            off.show();
+        }));
+    </script>
+</body>
+
+</html>
